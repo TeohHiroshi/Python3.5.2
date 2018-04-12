@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018-04-12 09:11
 # @Author  : BokzBCheung
-# @Site    : 
+# @Site    : www.github.com/BokzBCheung
 # @File    : guiTkinter.py
 # @Software: PyCharm
 # @license : Copyright(C),BokzBCheung
