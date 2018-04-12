@@ -19,9 +19,9 @@ class Application(Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        # 添加标题
-        #self.helloLabel = Label(self,text='Hello world!')
-        #self.helloLabel.pack()
+        # 添加label
+        self.helloLabel = Label(self,text='Please enter your name：',bg='#34b4f4')
+        self.helloLabel.pack(pady=10)
 
         # 添加输入框
         self.nameInput = Entry(self)
@@ -29,11 +29,11 @@ class Application(Frame):
 
         # 添加确认按钮
         self.confirmButton = Button(self,text='Confirm',command=self.confirm)
-        self.confirmButton.pack()
+        self.confirmButton.pack(padx=18,pady=10,side=LEFT)
 
         # 添加退出按钮
-        #self.quitButton = Button(self,text='Quit',command=self.quit)
-        #self.quitButton.pack()
+        self.quitButton = Button(self,text='Quit',command=self.quit)
+        self.quitButton.pack(padx=18,pady=10,side=LEFT)
 
     def confirm(self):
         name = self.nameInput.get()
