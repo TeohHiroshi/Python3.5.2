@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018-04-11 17:12
 # @Author  : BokzBCheung
-# @Site    : 
+# @Site    : www.github.com/bokzbcheung
 # @File    : tcpClient.py
 # @Software: PyCharm
 # @license : Copyright(C),BokzBCheung
