@@ -29,6 +29,7 @@ def tcplink(sock, addr):
         data = sock.recv(1024)
         time.sleep(1)
         if not data or data.decode('utf-8') == 'exit':
+            sock.send(b'you enter an EXIT command')
             break
         sock.send(('Hello, %s!' % data.decode('utf-8')).encode('utf-8'))
     sock.close()
