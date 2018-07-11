@@ -9,20 +9,47 @@
 # @Contact : BokzBCheung@gmail.com
 # 导入mysql驱动
 import mysql.connector
+from mysql.connector import connection,errorcode
 
-# 查询语句
-# 定义连接信息
-conn = mysql.connector.connect(user='root',password='lf0507',database='pythontest1')
+# #定义变量方式
+# hostname='192.168.10.17'
+# username='root'
+# password='lf0507'
+#
+# # 定义连接信息
+# conn = mysql.connector.connect(user=username,password=password,host=hostname,database='pythontest1')
+
+#定义字典方式
+config={
+    'user':'root',
+    'password':'lf0507',
+    'host':'192.168.10.17',
+    'database':'pythontest1'
+}
+
+try:
+    conn = mysql.connector.connect(**config)
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("请检查用户名或密码！")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("请检查数据库名称！")
+    else:
+        print(err)
+
 cursor = conn.cursor()
 
 # 定义查询语句
-sqlStr = "select * from t_userInfo"
-cursor.execute(sqlStr)
+query = "select Name from t_userInfo"
 
-values = cursor.fetchall()
+cursor.execute(query)
+names = cursor.fetchall()
 
-print(values)
-print(len(values))
+for Name in  names:
+    print("{}".format(Name))
+
+cursor.close()
+conn.close()
 
 # 将list转化为string
 # resuleStr = ''.join('%s' %pwd for pwd in values)
