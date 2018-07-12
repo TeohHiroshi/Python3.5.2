@@ -11,6 +11,10 @@
 # 导入gui程序包
 from tkinter import *
 from tkinter import messagebox
+import sys
+sys.path.append('E:\\BokzBCheung\\Python\\PycharmProjects\\PythonLearning\\MysqlDemo')
+print(sys.path)
+from MysqlDemo.mysqlConnector import getUserName
 
 class Application(Frame):
     def __init__(self,master=None):
@@ -37,7 +41,11 @@ class Application(Frame):
 
     def confirm(self):
         name = self.nameInput.get()
-        messagebox.showinfo(title='Hello~',message='Hello '+name+'!')
+
+        if getUserName(name) == 1:
+            messagebox.showinfo(title='Succ',message='Hello，'+name+'登录成功!')
+        else:
+            messagebox.showinfo(title="Fail",message='Sorry，登录失败!')
 
 
 # 实例化派生类Application
