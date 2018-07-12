@@ -7,6 +7,7 @@
 # @Software: PyCharm
 # @license : Copyright(C),BokzBCheung
 # @Contact : BokzBCheung@gmail.com
+
 # 导入mysql驱动
 import mysql.connector
 from mysql.connector import connection,errorcode
@@ -40,13 +41,13 @@ except mysql.connector.Error as err:
 cursor = conn.cursor()
 
 # 定义查询语句
-query = "select Name from t_userInfo"
+query = "select user_name from t_userInfo"
 
 cursor.execute(query)
 names = cursor.fetchall()
 
-for Name in  names:
-    print("{}".format(Name))
+for name in  names:
+    print("{}".format(name))
 
 cursor.close()
 conn.close()
