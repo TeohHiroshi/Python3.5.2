@@ -63,7 +63,7 @@ def fibonacci(n):
 
 print(fibonacci(7))
 
-# 二分法
+# 二分法查找
 
 # 递归方法
 def search_binary_recursion(lst,value,low,high):
