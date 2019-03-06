@@ -65,7 +65,7 @@ print(fibonacci(7))
 
 # 二分法查找
 
-# 递归方法
+# (1)递归方法
 def search_binary_recursion(lst,value,low,high):
     if high<low:
         return None
@@ -78,7 +78,7 @@ def search_binary_recursion(lst,value,low,high):
         else:
             return mid
 
-# 循环方法
+# (2)循环方法
 def search_binary_loop(lst,value):
     low=0
     high=len(lst)-1
