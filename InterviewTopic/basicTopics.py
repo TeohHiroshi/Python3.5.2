@@ -62,3 +62,53 @@ def fibonacci(n):
         return fibonacci(n-1)+fibonacci(n-2)
 
 print(fibonacci(7))
+
+# 二分法
+
+# 递归方法
+def search_binary_recursion(lst,value,low,high):
+    if high<low:
+        return None
+    else:
+        mid=int((low+high)/2)
+        if lst[mid]<value:
+            return search_binary_recursion(lst,value,mid+1,high)
+        elif lst[mid]>value:
+            return search_binary_recursion(lst,value,low,mid-1)
+        else:
+            return mid
+
+# 循环方法
+def search_binary_loop(lst,value):
+    low=0
+    high=len(lst)-1
+    while low<=high:
+        mid=int((low+high)/2)
+        if lst[mid]<value:
+            low=mid+1
+        elif lst[mid]>value:
+            high=mid-1
+        else:
+            return mid
+
+# 随机数组生成
+import random
+lst=[random.randint(1,100000) for _ in range(100000)]
+lst.sort()
+value=9999
+
+print(search_binary_loop(lst,value))
+print(search_binary_recursion(lst,value,0,len(lst)-1))
+
+#性能测试
+if __name__ == "__main__":
+    import timeit
+    def test_recursion():
+        search_binary_recursion(lst, value, 0, len(lst) - 1)
+    def test_loop():
+        search_binary_loop(lst, value)
+    t1=timeit.Timer("test_recursion",setup="from __main__ import test_recursion")
+    t2=timeit.Timer("test_loop",setup="from __main__ import test_loop")
+    print("Recursion:",t1.timeit())
+    print("Loop:",t2.timeit())
+
