@@ -35,4 +35,5 @@ def api():
 
 if __name__ == '__main__':
 #    app.config['JSON_AS_ASCII'] = False
-    app.run(host='127.0.0.1',port='8080')
+    app.run(debug=True,host='127.0.0.1',port='8080')
+print(__name__)

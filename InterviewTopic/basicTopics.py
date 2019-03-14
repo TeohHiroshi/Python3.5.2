@@ -112,3 +112,31 @@ if __name__ == "__main__":
     print("Recursion:",t1.timeit())
     print("Loop:",t2.timeit())
 
+# 逆序输出序列
+
+# (1)序列为List
+def rev_list(lst):
+    lst.reverse()
+    for x in lst:
+        print(x,end="")
+    print()
+
+# (2)序列非list
+def rev_tuple(tuple):
+    for i in range(len(tuple)-1,-1,-1):
+        print(tuple[i],end="")
+    print()
+
+rev_list([1,2,3,4])
+rev_tuple((1,2,3,4))
+
+# 替换文本字符串
+str="Hello C,Hello Java,Use Python!"
+
+# replace方法
+print(str.replace("Hello","Bye"))
+# sub方法
+import re
+rex=r'(Hello|Use)'
+print(re.sub(rex,"Bye",str))
+
