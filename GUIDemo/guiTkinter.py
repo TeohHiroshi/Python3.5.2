@@ -13,7 +13,6 @@ from tkinter import *
 from tkinter import messagebox
 import sys
 sys.path.append('E:\\BokzBCheung\\Python\\PycharmProjects\\PythonLearning\\MysqlDemo')
-print(sys.path)
 from MysqlDemo.mysqlConnector import getUserName
 
 class Application(Frame):
@@ -27,9 +26,13 @@ class Application(Frame):
         self.helloLabel = Label(self,text='Please enter your name：',bg='#34b4f4')
         self.helloLabel.pack(pady=10)
 
-        # 添加输入框
+        # 添加姓名输入框
         self.nameInput = Entry(self)
         self.nameInput.pack()
+
+        # 添加密码输入框
+        self.pwdInput = Entry(self)
+        self.pwdInput.pack()
 
         # 添加确认按钮
         self.confirmButton = Button(self,text='Confirm',command=self.confirm)
@@ -41,6 +44,7 @@ class Application(Frame):
 
     def confirm(self):
         name = self.nameInput.get()
+        pwd = self.pwdInput.get()
 
         if getUserName(name) == 1:
             messagebox.showinfo(title='Succ',message='Hello，'+name+'登录成功!')
@@ -52,10 +56,10 @@ class Application(Frame):
 app = Application()
 
 # 设置窗口标题
-app.master.title('Hello world')
+app.master.title('Welcom to use this testdemo!')
 
 # 设置窗口大小
-app.master.geometry('400x200')
+app.master.geometry('600x400')
 
 # 设置窗体是否可以拉伸
 app.master.resizable(width=True,height=True)

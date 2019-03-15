@@ -12,7 +12,7 @@
 import mysql.connector
 from mysql.connector import connection,errorcode
 
-def getUserName(currentName):
+def getUserName(currentName,currnetPwd):
     # #定义变量方式
     # hostname='192.168.10.17'
     # username='root'
@@ -43,18 +43,24 @@ def getUserName(currentName):
     cursor = conn.cursor()
 
     # 定义查询语句
-    query = "select user_name from t_userInfo"
+    query = "select username,password from t_userInfo"
 
     cursor.execute(query)
     names = cursor.fetchall()
 
+    print(names)
+
     for name in names:
+        print(name)
         if currentName in name:
+            print(currentName,"属于当前检测用户，开始检测密码！")
+
             return 1
             break
         else:
             print(currentName,"不属于当前检索用户，即将进行下一轮检索！")
         # print("{}".format(name))
+
 
 
     # if currentName in names:
@@ -66,6 +72,7 @@ def getUserName(currentName):
 
     cursor.close()
     conn.close()
+
 
     # 将list转化为string
     # resuleStr = ''.join('%s' %pwd for pwd in values)
