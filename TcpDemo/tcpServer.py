@@ -16,7 +16,7 @@ import time
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 #绑定端口
-s.bind(('127.0.0.1',9999))
+s.bind(('127.0.0.1',8888))
 
 #开始监听
 s.listen(5)
